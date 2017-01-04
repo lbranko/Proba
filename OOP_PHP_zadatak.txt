@@ -1,0 +1,75 @@
+ZADATAK 1
+=========
+
+- Definirajte baznu klasu Vehicle i dvije klase koje je nasljeđuju: Car, Bicycle
+    - Vehicle klasu nije moguće instancirati
+
+- Vehicle/Car/Bicycle klase imaju 7 metoda:
+    - konstruktor - prima početni broj osoba u vozilu
+    - getDescription - metoda vraća opis pojedinog vozila
+    - addPerson - metoda dodaje osobu u vozilo - moguće je dodati neograničen broj osoba u vozilo, ali samo dok je vozilo zaustavljeno
+    - removePerson - metoda miče osobu iz vozila - moguće je maknuti osobu iz vozila samo dok je vozilo zaustavljeno
+    - drive - pokreće vozilo - vozilo je moguće pokrenuti samo ako vozilo nije prazno i ako broj osoba ne premašuje broj dozvoljenih osoba
+    - stop - zaustavlja vozilo
+    - getMaxPeople - vraća maksimalan broj dozvoljenih osoba za pojedino vozilo
+
+- Morate odlučiti koje metode implementirati u kojim klasama te ih naravno i implementirati :)
+- Metode trebaju vraćati tekstualni status tako da donji primjeri koda vraćaju tekst kako je prikazano
+
+- Bonus, tj. neobavezan dio:
+
+    - implementirati getDescription metodu na način da je definirana samo u Vehicle klasi i da ju nije moguće redefinirati u Car/Bicycle klasama
+    - vrijednosti s kojima tako implementirana getDescription metoda barata je moguće definirati samo jednom
+
+
+------------------
+Primjeri izvođenja
+------------------
+
+Primjer 1:
+----------
+
+$car = new Car( 4 );
+echo $car->getDescription(); // Wheeled, self-powered motor vehicle used for transportation
+
+echo $car->drive(); // Vehicle started!
+
+echo $car->addPerson(); // Cannot add person, vehicle is driving!
+
+echo $car->stop(); // Vehicle stopped!
+echo $car->addPerson(); // Person added!
+echo $car->addPerson(); // Person added!
+echo $car->drive(); // Cannot start vehicle, too many people!
+
+echo $car->removePerson(); // Person removed!
+echo $car->drive(); // Vehicle started!
+
+echo $car->removePerson(); // Cannot remove person, vehicle is driving!
+
+echo $car->stop(); // Vehicle stopped!
+
+Primjer 2:
+----------
+
+$bike = new Bicycle( 2 );
+echo $bike->getDescription(); // Human-powered, pedal-driven, single-track vehicle
+
+echo $bike->drive(); // Cannot start vehicle, too many people!
+
+echo $bike->removePerson(); // Person removed!
+echo $bike->drive(); // Vehicle started!
+
+echo $bike->removePerson(); // Cannot remove person, vehicle is driving!
+
+echo $bike->stop(); // Vehicle stopped!
+echo $bike->removePerson(); // Person removed!
+
+echo $bike->drive(); // Cannot start vehicle, vehicle is empty!
+
+echo $bike->addPerson(); // Person added!
+echo $bike->drive(); // Vehicle started!
+
+echo $bike->stop(); // Vehicle stopped!
+
+echo $bike->removePerson(); // Person removed!
+echo $bike->removePerson(); // Cannot remove person, vehicle is empty!
